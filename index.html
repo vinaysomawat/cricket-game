@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cricket Clash — 12 Ball Blitz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- START SCREEN -->
+    <section id="screen-start" class="screen active">
+      <div class="start-card glass">
+        <h1 class="logo">🏏 Cricket <span>Clash</span></h1>
+        <p class="tagline">12 Ball Blitz — Every ball counts.</p>
+        <div class="best-score">
+          Highest Score: <span id="start-high-score">0</span>
+        </div>
+        <button id="btn-play" class="btn btn-primary">Play</button>
+        <p class="controls-hint">
+          <strong>Desktop:</strong> Press <kbd>Space</kbd> to hit &nbsp;|&nbsp;
+          <strong>Mobile:</strong> Tap screen to hit
+        </p>
+      </div>
+    </section>
+
+    <!-- TOSS SCREEN -->
+    <section id="screen-toss" class="screen">
+      <div class="toss-card glass">
+        <h2>Toss Time</h2>
+        <div class="coin" id="coin">
+          <div class="coin-face heads">H</div>
+          <div class="coin-face tails">T</div>
+        </div>
+        <p id="toss-result" class="toss-result"></p>
+      </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="screen-game" class="screen">
+      <div class="scoreboard glass">
+        <div class="score-main">
+          <span id="sb-runs">0</span>/<span id="sb-wickets">0</span>
+        </div>
+        <div class="score-details">
+          <div class="score-chip"><label>Overs</label><span id="sb-overs">0.0</span></div>
+          <div class="score-chip"><label>Balls Left</label><span id="sb-balls-left">12</span></div>
+          <div class="score-chip"><label>CRR</label><span id="sb-crr">0.00</span></div>
+          <div class="score-chip"><label>Best</label><span id="sb-high-score">0</span></div>
+        </div>
+      </div>
+
+      <div class="stadium-wrap">
+        <canvas id="stadium"></canvas>
+        <div id="popup-layer"></div>
+        <div id="commentary" class="commentary"></div>
+        <div id="tap-hint" class="tap-hint">TAP or press SPACE to hit!</div>
+      </div>
+    </section>
+
+    <!-- MATCH SUMMARY SCREEN -->
+    <section id="screen-summary" class="screen">
+      <div class="summary-card glass">
+        <h2 id="summary-title">Match Summary</h2>
+        <div class="summary-score" id="summary-score">0/0</div>
+        <div class="summary-grid">
+          <div class="summary-stat"><label>Strike Rate</label><span id="sum-sr">0.0</span></div>
+          <div class="summary-stat"><label>Fours</label><span id="sum-fours">0</span></div>
+          <div class="summary-stat"><label>Sixes</label><span id="sum-sixes">0</span></div>
+          <div class="summary-stat"><label>Dots</label><span id="sum-dots">0</span></div>
+          <div class="summary-stat"><label>Wickets</label><span id="sum-wickets">0</span></div>
+          <div class="summary-stat"><label>Highest Score</label><span id="sum-high">0</span></div>
+        </div>
+        <p id="summary-new-record" class="new-record">🎉 New High Score!</p>
+        <button id="btn-play-again" class="btn btn-primary">Play Again</button>
+      </div>
+    </section>
+
+    <canvas id="confetti-canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
