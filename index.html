@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Cricket Clash — 12 Ball Blitz</title>
+  <title>Cricket Clash 3D — 12 Ball Blitz</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
   <div id="app">
@@ -12,7 +20,7 @@
     <!-- START SCREEN -->
     <section id="screen-start" class="screen active">
       <div class="start-card glass">
-        <h1 class="logo">🏏 Cricket <span>Clash</span></h1>
+        <h1 class="logo">🏏 Cricket <span>Clash</span> <small>3D</small></h1>
         <p class="tagline">12 Ball Blitz — Every ball counts.</p>
         <div class="best-score">
           Highest Score: <span id="start-high-score">0</span>
@@ -23,6 +31,7 @@
           <strong>Mobile:</strong> Tap screen to hit
         </p>
       </div>
+      <div id="loading-note" class="loading-note">Loading 3D stadium…</div>
     </section>
 
     <!-- TOSS SCREEN -->
@@ -52,9 +61,22 @@
       </div>
 
       <div class="stadium-wrap">
-        <canvas id="stadium"></canvas>
+        <div id="stadium-3d"></div>
+        <canvas id="fx-canvas"></canvas>
+        <div id="cam-label" class="cam-label">BROADCAST CAM</div>
+        <div id="timing-meter" class="timing-meter">
+          <div class="timing-track">
+            <div class="timing-zone zone-poor-l"></div>
+            <div class="timing-zone zone-good-l"></div>
+            <div class="timing-zone zone-perfect"></div>
+            <div class="timing-zone zone-good-r"></div>
+            <div class="timing-zone zone-poor-r"></div>
+            <div id="timing-needle" class="timing-needle"></div>
+          </div>
+        </div>
         <div id="popup-layer"></div>
         <div id="commentary" class="commentary"></div>
+        <div id="replay-banner" class="replay-banner">INSTANT REPLAY</div>
         <div id="tap-hint" class="tap-hint">TAP or press SPACE to hit!</div>
       </div>
     </section>
@@ -80,6 +102,6 @@
     <canvas id="confetti-canvas"></canvas>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>

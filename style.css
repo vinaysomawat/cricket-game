@@ -85,6 +85,14 @@ html, body {
   color: transparent;
 }
 
+.logo small {
+  font-size: 0.85rem;
+  opacity: 0.55;
+  vertical-align: super;
+  margin-left: 2px;
+  letter-spacing: 1px;
+}
+
 .tagline {
   opacity: 0.8;
   margin-bottom: 22px;
@@ -267,10 +275,122 @@ html, body {
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-#stadium {
-  display: block;
+#stadium-3d {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+}
+
+#stadium-3d canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#fx-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.loading-note {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
+.cam-label {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffb703;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cam-label.show {
+  opacity: 0.95;
+}
+
+.timing-meter {
+  position: absolute;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(320px, 70%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.timing-meter.show {
+  opacity: 1;
+}
+
+.timing-track {
+  position: relative;
+  height: 10px;
+  border-radius: 6px;
+  overflow: visible;
+  display: flex;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.timing-zone {
+  height: 100%;
+}
+
+.zone-poor-l, .zone-poor-r { flex: 1.4; background: rgba(239, 35, 60, 0.45); }
+.zone-good-l, .zone-good-r { flex: 1; background: rgba(58, 134, 255, 0.55); }
+.zone-perfect { flex: 0.6; background: rgba(255, 183, 3, 0.85); }
+.zone-poor-l { border-radius: 6px 0 0 6px; }
+.zone-poor-r { border-radius: 0 6px 6px 0; }
+
+.timing-needle {
+  position: absolute;
+  top: -4px;
+  left: 0%;
+  width: 3px;
+  height: 18px;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+  transition: left 0.03s linear;
+}
+
+.replay-banner {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-40px);
+  background: linear-gradient(90deg, #ef233c, #ff8500);
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.replay-banner.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 #popup-layer {
